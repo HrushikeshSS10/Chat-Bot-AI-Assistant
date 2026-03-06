@@ -1,3 +1,4 @@
+streamlit
 # ---- LangChain Core ----
 langchain
 langchain-core
@@ -20,3 +21,4 @@ dotenv
 numpy
 
 scikit-learn
+
