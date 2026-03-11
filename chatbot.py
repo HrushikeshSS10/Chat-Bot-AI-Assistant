@@ -16,8 +16,8 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 # ================================
 
 st.set_page_config(
-    page_title="Spider AI",
-    page_icon="🕷️",
+    page_title="Hrushi AI",
+    page_icon="😎",
     layout="centered"
 )
 
@@ -40,7 +40,7 @@ llm = ChatOpenAI(
     temperature=0.6,
     default_headers={
         "HTTP-Referer": "http://localhost:8501",
-        "X-Title": "Spider AI"
+        "X-Title": "Hrushi AI"
     }
 )
 
