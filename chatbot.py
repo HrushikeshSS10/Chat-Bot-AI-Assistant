@@ -16,7 +16,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 # ================================
 
 st.set_page_config(
-    page_title="Hrushi AI",
+    page_title="Smart AI",
     page_icon="😎",
     layout="centered"
 )
@@ -44,7 +44,7 @@ llm = ChatOpenAI(
     temperature=0.6,
     default_headers={
         "HTTP-Referer": "http://localhost:8501",
-        "X-Title": "Hrushi AI"
+        "X-Title": "Smart AI"
     }
 )
 
@@ -96,7 +96,7 @@ prompt_template = ChatPromptTemplate.from_messages([
     (
         "system",
         """
-You are Hrushi AI, a professional AI assistant.
+You are Smart AI, a professional AI assistant.
 
 ROLE:
 - Active Role: {role}
@@ -139,7 +139,7 @@ if "welcomed" not in st.session_state:
 # ================================
 
 with st.sidebar:
-    st.title("Hrushi AI")
+    st.title("Smart AI")
 
     st.session_state.role = st.selectbox(
         "Select Role",
@@ -155,7 +155,7 @@ with st.sidebar:
 # HEADER
 # ================================
 
-st.markdown("<div class='main-title'>Hrushi AI</div>", unsafe_allow_html=True)
+st.markdown("<div class='main-title'>Smart AI</div>", unsafe_allow_html=True)
 st.markdown(
     "<div class='subtitle'>Role-Driven Professional AI Assistant</div>",
     unsafe_allow_html=True
@@ -185,7 +185,7 @@ if not st.session_state.user_name:
 if not st.session_state.welcomed:
     welcome = (
         f"Welcome {st.session_state.user_name}. "
-        f"I am Hrushi AI acting as your {st.session_state.role}. "
+        f"I am Smart AI acting as your {st.session_state.role}. "
         f"How may I assist you today?"
     )
     st.session_state.messages.append(AIMessage(content=welcome))
@@ -210,7 +210,7 @@ for msg in st.session_state.messages:
 # ================================
 
 if prompt := st.chat_input(
-    f"Message Hrushi AI, {st.session_state.user_name}..."
+    f"Message Smart AI, {st.session_state.user_name}..."
 ):
 
     # 1️⃣ Show user message instantly
@@ -221,7 +221,7 @@ if prompt := st.chat_input(
     # 2️⃣ Assistant thinking bubble
     with st.chat_message("assistant"):
         message_placeholder = st.empty()
-        message_placeholder.markdown("⏳ Hrushi AI is thinking...")
+        message_placeholder.markdown("⏳ Smart AI is thinking...")
 
         try:
             chain_input = {
@@ -246,4 +246,4 @@ if prompt := st.chat_input(
 
         except Exception as e:
             message_placeholder.markdown("❌ Error occurred:")
-            st.error(str(e)) 
+            st.error(str(e))
