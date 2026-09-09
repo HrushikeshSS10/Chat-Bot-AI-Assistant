@@ -1,4 +1,3 @@
-streamlit
 # ---- LangChain Core ----
 langchain
 langchain-core
@@ -7,7 +6,7 @@ langchain-core
 langchain-openai
 openai
 langchain-anthropic
-langchain-google-genai
+langchain-google-genaiP
 google-generativeai
 langchain-huggingface
 transformers
@@ -19,6 +18,4 @@ dotenv
 
 # ---- ML / Utilities ----
 numpy
-
 scikit-learn
-

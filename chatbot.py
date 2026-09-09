@@ -26,16 +26,20 @@ st.set_page_config(
 # ENVIRONMENT SETUP
 # ================================
 
-load_dotenv()
+# 1. override=True forces Python to read the fresh key from disk
+#    instead of holding onto the old/expired key in RAM.
+load_dotenv(override=True)
+
 api_key = os.getenv("OPENROUTER_API_KEY")
 
 if not api_key:
     st.error("❌ OPENROUTER_API_KEY missing.")
     st.stop()
 
+# 2. Use standard langchain-openai arguments (base_url and api_key)
 llm = ChatOpenAI(
-    openai_api_key=api_key,   # ✅ THIS IS IMPORTANT
-    openai_api_base="https://openrouter.ai/api/v1",
+    api_key=api_key,
+    base_url="https://openrouter.ai/api/v1",
     model="deepseek/deepseek-chat",
     temperature=0.6,
     default_headers={
@@ -43,7 +47,6 @@ llm = ChatOpenAI(
         "X-Title": "Hrushi AI"
     }
 )
-
 
 # ================================
 # STYLING
@@ -136,7 +139,7 @@ if "welcomed" not in st.session_state:
 # ================================
 
 with st.sidebar:
-    st.title("🕷️ Hrushi AI")
+    st.title("Hrushi AI")
 
     st.session_state.role = st.selectbox(
         "Select Role",
